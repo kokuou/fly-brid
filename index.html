@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>fly-brid | Visual constructor for coding fluid-hybrid HTML emails</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+	<!-- Modal overlay -->
+	<div class="modal fade" id="email_code" tabindex="-1" role="dialog" aria-labelledby="code_modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="modal-title" id="myModalLabel">Your code</h3>
+				</div>
+				<div class="modal-body">
+					<textarea id="final-code"></textarea>
+					<p>Dont' forget to inline your code using <a href="http://inliner.cm" target="_blank">Campaign Monitor's Inliner Tool</a> or any other inlining method.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Modal -->
+
+	<div class="page-container">
+		<header>
+			<div class="container">
+				<div class="logo"><span class="logo-inner">fly<img class="logo-letter hyphen" src="img/hyphen.png">br<img class="logo-letter i" src="img/i.png">d</span></div>
+			</div>
+		</header>
+
+		<div class="container about">
+			<p>About <span class="logo-text">fly-brid</span>:</p>
+			<p><span class="logo-text">fly-brid</span> is a tool that allows developers to easily and quickly create HTML email layouts using the <a href="http://webdesign.tutsplus.com/tutorials/creating-a-future-proof-responsive-email-without-media-queries--cms-23919" target="_blank">fluid-hybrid</a> method by <a href="http://tutsplus.com/authors/nicole-merlin" target="_blank">Nicole Merlin</a> (last name oh-so-relevant) method without having to copy and paste each time. Simply choose the elements you need and click <span class="logo-text">fly-brid me!</span> to output your code!</p>
+		</div>
+
+		<div class="container app-outer">
+			<div class="row">
+				<div class="col-xs-12 col-md-3">
+					<div class="elements">
+						<p class="section-header">Select Components</p>
+						<p>Full-width Banner</p>
+						<button class="component" id="add-banner">
+							<p>Banner Image</p>
+							<div class="components">
+								<div class="banner"><span class="glyphicon glyphicon-picture"></span></div>
+							</div>
+						</button>
+						<p>Columns</p>
+						<button class="component" id="add-one-column">
+							<p>One-column</p>
+							<div class="components">
+								<div class="component-one-column"><div class="component-inner"></div></div>
+							</div>
+						</button>
+						<button class="component" id="add-two-column">
+							<p>Two-column</p>
+							<div class="components">
+								<div class="component-two-column"><div class="component-inner"></div></div>
+								<div class="component-two-column"><div class="component-inner"></div></div>
+							</div>
+						</button>
+						<button class="component" id="add-three-column">
+							<p>Three-column</p>
+							<div class="components">
+								<div class="component-three-column"><div class="component-inner"></div></div>
+								<div class="component-three-column"><div class="component-inner"></div></div>
+								<div class="component-three-column"><div class="component-inner"></div></div>
+							</div>
+						</button>
+						<p>Sidebars</p>
+						<button class="component" id="add-sidebar-n">
+							<p>Left Sidebar</p>
+							<div class="components">
+								<div class="component-sidebar-side"><div class="component-inner"></div></div>
+								<div class="component-sidebar-main normal"><div class="component-inner"></div></div>
+							</div>
+						</button>
+						<button class="component" id="add-sidebar-r">
+							<p>Right (reverse) Sidebar</p>
+							<div class="components">
+								<div class="component-sidebar-main reversed"><div class="component-inner"></div></div>
+								<div class="component-sidebar-side"><div class="component-inner"></div></div>
+							</div>
+						</button>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-9">
+					<div class="options">
+						<p class="section-header">Options</p>
+						<div class="options-box">
+							<div class="option"><input type="checkbox" id="media-query"><label for="media-query">Media query preview</label></div>
+							<div class="option"><label for="breakpoint-tablet">Tablet breakpoint</label><input type="text" id="breakpoint-tablet" value="600"></div>
+							<div class="option"><label for="breakpoint-mobile">Mobile breakpoint</label><input type="text" id="breakpoint-mobile" value="400"></div>
+							<div class="option">
+								<p class="alignment-label">Column alignment (mobile)</p>
+								<span><input type="radio" name="align-columns" value="left" id="align-left" class="alignment-radio"><label for="align-left">Left</label></span>
+								<span><input type="radio" name="align-columns" value="center" id="align-center" class="alignment-radio" checked><label for="align-center">Center</label></span>
+							</div>
+						</div>
+					</div>
+					<div class="preview">
+						<p class="section-header">Preview</p>
+						<div class="row">
+							<div class="col-xs-6">
+								<p class="section-header preview-header">Desktop</p>
+								<div class="preview-pane-outer">
+									<div class="desktop">
+
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<p class="section-header preview-header">Tablet</p>
+								<div class="preview-pane-outer">
+									<div class="tablet align-center">
+
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2">
+								<p class="section-header preview-header">Mobile</p>
+								<div class="preview-pane-outer">
+									<div class="mobile">
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-4">
+								<button id="flybrid-me" type="button" data-toggle="modal" data-target="#email_code">fly-brid me!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

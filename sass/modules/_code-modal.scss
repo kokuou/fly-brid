@@ -1,0 +1,25 @@
+.modal-dialog {
+	width: 800px;
+	max-width: 800px;
+
+	.modal-header {
+		text-align: center;
+		background: $blue;
+		border-bottom: 1px solid darken($blue, 25%);
+		font-family: "Righteous";
+		color: $white;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
+
+	#final-code {
+		width: 90%;
+		min-height: 500px;
+		font-family: 'Inconsolata';
+		margin: auto;
+		resize: none;
+		background: lighten($light-grey, 5%);
+		display: block;
+		tab-size: 2;
+	}
+}

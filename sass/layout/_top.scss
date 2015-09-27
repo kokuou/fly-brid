@@ -1,0 +1,62 @@
+.logo {
+	text-align: center;
+	font-size: 5em;
+	font-family: 'Righteous';
+	color: $seagreen;
+
+	.logo-letter {
+		max-height: 50px;
+
+		&.i {
+			position: relative;
+			bottom: 5px;
+			display: inline-block;
+			margin: 0 3px;
+		}
+	}
+
+	.logo-inner {
+		display: inline-block;
+		position: relative;
+		line-height: 0.9;
+
+		&:after {
+			display: block;
+		    content: "";
+		    position: absolute;
+		    width: 40px;
+		    height: 40px;
+		    border-top-left-radius: 40px;
+		    border-bottom-left-radius: 40px;
+		    border-bottom-right-radius: 40px;
+		    background-color: #2E8B57;
+		    top: 15px;
+		    left: -60px;
+		    transform: rotateZ(45deg);
+		}
+
+		&:before {
+			display: block;
+		    content: "";
+		    position: absolute;
+		    width: 40px;
+		    height: 40px;
+		    border-top-left-radius: 40px;
+		    border-bottom-left-radius: 40px;
+		    border-bottom-right-radius: 40px;
+		    background-color: #2E8B57;
+		    top: 15px;
+		    right: -60px;
+		    transform: rotateZ(-135deg);
+		}
+	}
+}
+
+.about {
+	.logo-text {
+		font-family: 'Righteous';
+		color: $seagreen;
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+}

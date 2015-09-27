@@ -1,0 +1,502 @@
+.app-outer {
+
+	.elements,
+	.preview,
+	.options {
+		border: 1px solid $seagreen;
+		padding: 5px;
+		text-align: center;
+		background: lighten($seagreen, 55%);
+		margin-bottom: 10px;
+	}
+
+	.elements,
+	.preview {
+		min-height: 500px;
+	}
+
+	.options {
+		min-height: 120px;
+	}
+
+	.options-box {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.option {
+			text-align: center;
+		}
+
+		#media-query {
+			position: absolute;
+			left: -9999px;
+
+			& ~ label {
+				position: relative;
+				cursor: pointer;
+
+				&:after {
+					content: "\e017";
+					font-weight: normal;
+				    font-size: .8rem;
+				    font-family: 'Glyphicons Halflings';
+				    color: darken($red, 20%);
+				    line-height: 1.7;
+					display: block;
+					position: absolute;
+					left: 40%;
+					transform: translateX(-50%);
+					bottom: -25px;
+					width: 25px;
+					height: 25px;
+					border-radius: 100%;
+					border: 2px solid $red;
+					background: lighten($red, 20%);
+					transition: all 0.3s ease-in-out;
+				}
+
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					bottom: -15px;
+					left: 40%;
+					width: 20%;
+					background: $grey;
+					height: 4px;
+					border-radius: 4px;
+				}
+			}
+
+			&:checked ~ label:after {
+				content: "\e089";
+				color: darken($seagreen, 20%);
+				left: 60%;
+				background: lighten($seagreen, 30%);
+				border: 2px solid $seagreen;
+			}
+		}
+
+		#breakpoint-tablet,
+		#breakpoint-mobile {
+			display: block;
+			margin: auto;
+			width: 50px;
+		}
+
+		.alignment-label {
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		#align-left ~ label {
+			margin-right: 15px;
+		}
+		.alignment-radio {
+			position: absolute;
+			left: -9999px;
+
+			&:checked ~ label {
+				background: $blue;
+				color: $white;
+			}
+		}
+		.alignment-radio ~ label {
+			cursor: pointer;
+			padding: 0 5px;
+		}
+	}
+
+	.component {
+		border: 2px solid $seagreen;
+		margin-bottom: 20px;
+		width: 100%;
+		max-width: 300px;
+		background: $white;
+		padding: 5px;
+		transition: all 0.1s ease-in-out;
+		min-height: 90px;
+		vertical-align: top;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+		&:active {
+			position: relative;
+			box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+			transform: scale(0.97);
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+			outline: none;
+		}
+	}
+}
+
+.banner {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	background: $blue;
+	color: $white;
+	font-size: 1.4rem;
+	line-height: 1.8;
+	position: relative;
+	z-index: 1;
+}
+
+.components {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+
+	&:not(:last-child) {
+		margin-bottom: 1px;
+	}
+
+	.delete-this {
+		display: none;
+		background: rgba(0,0,0,0.4);
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+
+		.controls {
+			display: none;
+			color: $white;
+			background: rgba(0,0,0,0.8);
+			font-size: 1.4rem;
+			cursor: pointer;
+			padding: 5px;
+		}
+	}
+
+	&:hover .delete-this {
+		display: flex;
+	}
+}
+
+.component-one-column {
+	border: 1px dashed $blue;
+	width: 100%;
+	height: 40px;
+	margin: auto;
+	padding: 5px;
+	background: lighten($blue, 50%);
+}
+
+.component-two-column {
+	border: 1px dashed $blue;
+	width: 50%;
+	height: 40px;
+	padding: 5px;
+	background: lighten($blue, 50%);
+	transition: all 0.2s ease-in-out;
+
+	&:first-child {
+		margin-right: 1px;
+	}
+}
+
+.component-three-column {
+	border: 1px dashed $blue;
+	width: 33.3333333%;
+	height: 40px;
+	padding: 5px;
+	background: lighten($blue, 50%);
+	transition: all 0.2s ease-in-out;
+
+	&:not(:last-child) {
+		margin-right: 1px;
+	}
+}
+
+.component-sidebar-main {
+	border: 1px dashed $blue;
+	width: 75%;
+	height: 40px;
+	padding: 5px;
+	background: lighten($blue, 50%);
+	transition: all 0.2s ease-in-out;
+
+	&.normal {
+		margin-left: 1px;
+		margin-right: 0;
+	}
+	&.reversed {
+		margin-right: 1px;
+		margin-left: 0;
+	}
+	
+}
+
+.component-sidebar-side {
+	border: 1px dashed $red;
+	width: 25%;
+	height: 40px;
+	padding: 5px;
+	background: lighten($red, 38%);
+	transition: all 0.2s ease-in-out;
+
+	.component-inner {
+		border: 1px solid $red;
+	}
+}
+
+.component-inner {
+	width: 100%;
+	border: 1px solid $blue;
+	height: 100%;
+	background: $white;
+}
+
+.preview-pane-outer {
+	border: 1px solid $blue;
+	background: $light-grey;
+	min-height: 300px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.desktop {
+		width: 80%;
+		background: $white;
+		margin: auto;
+
+		.components {
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		
+		.component-two-column {
+			width: 49.5%;
+		}
+		.component-three-column {
+			width: 33%;
+		}
+
+		.component-sidebar-side {
+			width: 24.5%;
+		}
+
+		.banner {
+			height: 60px;
+			font-size: 2.2rem;
+		}
+		.component-one-column,
+		.component-two-column,
+		.component-three-column,
+		.component-sidebar-main,
+		.component-sidebar-side {
+			height: 50px;
+			margin-bottom: 1px;
+			margin-right: 0;
+		}
+	}
+	.tablet {
+		width: 100%;
+		background: $white;
+
+		.components {
+			flex-wrap: wrap;
+			width: 100%;
+			margin: auto;
+			justify-content: center;
+		}
+		&.align-center {
+			.components.three-col {
+				justify-content: center;
+			}
+
+			&.media-queries-on .components.three-col {
+				justify-content: space-between;
+			}
+		}
+
+		&.align-left .components.three-col {
+			justify-content: flex-start;
+		}
+
+		.banner {
+			height: 40px;
+			font-size: 1.6rem;
+			margin-bottom: 1px;
+		}
+
+		.component-one-column,
+		.component-two-column,
+		.component-three-column,
+		.component-sidebar-main,
+		.component-sidebar-side {
+			height: 45px;
+			margin-bottom: 1px;
+		}
+
+		.component-two-column {
+			width: 51%;
+			margin-bottom: 1px;
+			margin-right: 0;
+		}
+		.component-three-column {
+			width: 35%;
+			margin-right: 1px;
+
+			&:nth-child(odd) {
+				margin-right: 1px;
+			}
+		}
+		.component-sidebar-side {
+			width: 30%;
+		}
+		.component-sidebar-main {
+			width: 80%;
+			margin-right: 0;
+		}
+	}
+	.mobile {
+		width: 100%;
+		background: $white;
+
+		&.align-center .component-three-column {
+			margin: 0 auto 1px;
+		}
+		&.align-left .component-three-column {
+			margin: 0 0 1px !important;
+		}
+
+		.delete-this .controls {
+			font-size: 1rem;
+		}
+
+		.banner {
+			height: 30px;
+			font-size: 1rem;
+			margin-bottom: 1px;
+		}
+		.components {
+			display: block;
+			
+			.component-two-column,
+			.component-three-column,
+			.component-sidebar-main,
+			.component-sidebar-side {
+				margin: 0 auto 1px;
+			}
+
+			.component-two-column {
+				width: 80%;
+			}
+
+			.component-three-column {
+				width: 60%;
+			}
+
+			.component-sidebar-side {
+				width: 40%;
+			}
+			.component-sidebar-main {
+				width: 100%;
+			}
+
+			.component-one-column,
+			.component-two-column,
+			.component-three-column,
+			.component-sidebar-main,
+			.component-sidebar-side {
+				height: 40px;
+			}
+		}
+	}
+
+	.tablet.media-queries-on {
+		.components {
+			justify-content: space-between;
+
+			&.sidebar {
+				justify-content: center;
+			}
+		}
+		.component-two-column {
+			width: 49.8%;
+			margin-bottom: 1px;
+
+			&:first-child {
+				margin-right: 1px;
+			}
+		}
+		.component-three-column {
+			width: 33%;
+			margin-bottom: 1px;
+			margin-right: 0;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		.component-sidebar-main {
+			width: 100%;
+			margin-right: 0;
+			margin-bottom: 1px;
+		}
+	}
+	.mobile.media-queries-on {
+
+		.components {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		.banner,
+		.one-column {
+			margin-bottom: 1px;
+		}
+
+		.component-three-column {
+			width: 100%;
+			margin-bottom: 1px;
+
+			&:nth-child(odd) {
+				margin-right: 1px;
+			}
+		}
+
+		.component-two-column {
+			width: 100%;
+		}
+		.component-sidebar-main {
+			margin-bottom: 1px;
+			width: 100%;
+			margin-right: 0;
+			margin-left: 0;
+		}
+
+	}
+
+}
+
+#flybrid-me {
+	width: 100%;
+	text-align: center;
+	font-family: 'Righteous';
+	font-size: 2.5rem;
+	color: $white;
+	background: $seagreen;
+	transition: all 0.2s ease-in-out;
+	border: none;
+	padding: 5px 15px;
+	display: inline-block;
+
+	&:active {
+		transform: scale(0.95);
+	}
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
