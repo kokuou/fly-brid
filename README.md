@@ -4,6 +4,7 @@ Author: Ryan Field
 Version: 1.0.0
 
 Copyright 2015 Ryan Field
+
 Dual licensed under MIT and GPL
 
 

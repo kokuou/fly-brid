@@ -21,5 +21,11 @@
 		background: lighten($light-grey, 5%);
 		display: block;
 		tab-size: 2;
+
+		& ~ p {
+			font-size: 0.8rem;
+			margin-top: 10px;
+			text-align: center;
+		}
 	}
 }
